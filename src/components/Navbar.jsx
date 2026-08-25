@@ -15,24 +15,31 @@ export default function Navbar() {
   const { pathname } = useLocation()
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-beige/95 backdrop-blur-md border-b border-cream-mid shadow-sm">
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
-        <Link to="/" className="flex items-center gap-3 no-underline">
-          <span className="text-xl font-bold text-olive tracking-wide" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+    <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, backgroundColor: 'rgba(247,243,237,0.97)', backdropFilter: 'blur(8px)', borderBottom: '1px solid #e8dcc8', boxShadow: '0 1px 4px rgba(0,0,0,0.05)' }}>
+      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px' }}>
+        {/* Logo + Name */}
+        <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
+          <img src="/logo.jpg" alt="Under The Woods Logo" style={{ width: '36px', height: '36px', borderRadius: '50%', objectFit: 'cover' }} />
+          <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '18px', fontWeight: 700, color: '#2e5a1e', letterSpacing: '0.5px' }}>
             {STORE.name}
           </span>
         </Link>
 
-        <div className="hidden md:flex gap-8 items-center">
+        {/* Desktop Nav */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }} className="nav-desktop">
           {links.map(l => (
             <Link
               key={l.to}
               to={l.to}
-              className={`text-sm font-medium tracking-wide no-underline transition-colors ${
-                pathname === l.to
-                  ? 'text-olive border-b-2 border-olive pb-0.5'
-                  : 'text-brown-muted hover:text-olive'
-              }`}
+              style={{
+                fontSize: '14px',
+                fontWeight: 500,
+                letterSpacing: '0.5px',
+                textDecoration: 'none',
+                color: pathname === l.to ? '#2e5a1e' : '#8d6e63',
+                borderBottom: pathname === l.to ? '2px solid #2e5a1e' : '2px solid transparent',
+                paddingBottom: '2px',
+              }}
             >
               {l.label}
             </Link>
@@ -41,31 +48,53 @@ export default function Navbar() {
             href={`https://wa.me/91${STORE.whatsapp}?text=Hi! I'd like to make a reservation.`}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-olive hover:bg-olive-dark text-cream text-sm font-medium px-5 py-2 rounded-full no-underline transition-colors"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundColor: '#2e5a1e',
+              color: '#faf5ef',
+              fontSize: '13px',
+              fontWeight: 600,
+              padding: '10px 24px',
+              borderRadius: '50px',
+              textDecoration: 'none',
+              whiteSpace: 'nowrap',
+              letterSpacing: '0.3px',
+            }}
           >
             Reserve Table
           </a>
         </div>
 
+        {/* Mobile Toggle */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden text-brown text-xl bg-transparent border-none cursor-pointer"
+          className="nav-mobile-btn"
+          style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#3e2723', fontSize: '20px', display: 'none' }}
           aria-label="Toggle menu"
         >
           {open ? <FaTimes /> : <FaBars />}
         </button>
       </div>
 
+      {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden bg-beige border-t border-cream-mid px-6 pb-4">
+        <div className="nav-mobile-menu" style={{ backgroundColor: '#f7f3ed', borderTop: '1px solid #e8dcc8', padding: '8px 24px 16px' }}>
           {links.map(l => (
             <Link
               key={l.to}
               to={l.to}
               onClick={() => setOpen(false)}
-              className={`block py-3 text-sm font-medium no-underline border-b border-cream-dark ${
-                pathname === l.to ? 'text-olive' : 'text-brown-muted'
-              }`}
+              style={{
+                display: 'block',
+                padding: '12px 0',
+                fontSize: '14px',
+                fontWeight: 500,
+                textDecoration: 'none',
+                borderBottom: '1px solid #f0e6d6',
+                color: pathname === l.to ? '#2e5a1e' : '#8d6e63',
+              }}
             >
               {l.label}
             </Link>
@@ -74,12 +103,34 @@ export default function Navbar() {
             href={`https://wa.me/91${STORE.whatsapp}?text=Hi! I'd like to make a reservation.`}
             target="_blank"
             rel="noopener noreferrer"
-            className="block mt-3 text-center bg-olive text-cream text-sm font-medium px-5 py-2.5 rounded-full no-underline"
+            style={{
+              display: 'block',
+              marginTop: '12px',
+              textAlign: 'center',
+              backgroundColor: '#2e5a1e',
+              color: '#faf5ef',
+              fontSize: '14px',
+              fontWeight: 600,
+              padding: '12px 24px',
+              borderRadius: '50px',
+              textDecoration: 'none',
+              whiteSpace: 'nowrap',
+            }}
           >
             Reserve Table
           </a>
         </div>
       )}
+
+      <style>{`
+        @media (max-width: 768px) {
+          .nav-desktop { display: none !important; }
+          .nav-mobile-btn { display: block !important; }
+        }
+        @media (min-width: 769px) {
+          .nav-mobile-menu { display: none !important; }
+        }
+      `}</style>
     </nav>
   )
 }
