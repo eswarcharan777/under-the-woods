@@ -84,9 +84,8 @@ export default function Home() {
       </section>
 
       {/* Quote */}
-      <section style={{ position: 'relative', padding: '80px 24px', backgroundColor: '#2e5a1e', color: '#faf5ef', textAlign: 'center', overflow: 'hidden' }}>
-        <LogoBg size={300} opacity={0.15} />
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: '600px', margin: '0 auto' }}>
+      <section style={{ padding: '80px 24px', backgroundColor: '#2e5a1e', color: '#faf5ef', textAlign: 'center' }}>
+        <div style={{ maxWidth: '600px', margin: '0 auto' }}>
           <FaQuoteLeft style={{ fontSize: '28px', opacity: 0.4, marginBottom: '20px' }} />
           <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(18px, 3vw, 24px)', fontWeight: 300, fontStyle: 'italic', lineHeight: 1.6, marginBottom: '16px' }}>
             Where every meal is a celebration of nature's finest flavors
