@@ -3,54 +3,48 @@ import { STORE } from '../data'
 
 export default function Footer() {
   return (
-    <footer className="bg-olive text-cream py-14 px-6">
-      <div className="max-w-5xl mx-auto text-center">
-        {/* Brand */}
-        <h3 className="font-bold text-2xl mb-2" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+    <footer style={{ backgroundColor: '#2e5a1e', color: '#faf5ef', padding: '56px 24px', textAlign: 'center' }}>
+      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+        <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, fontSize: '24px', marginBottom: '8px' }}>
           {STORE.name}
         </h3>
-        <p className="text-cream/60 font-light text-sm mb-8">{STORE.tagline}</p>
+        <p style={{ opacity: 0.6, fontWeight: 300, fontSize: '14px', marginBottom: '32px' }}>{STORE.tagline}</p>
 
-        {/* Info grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10 text-sm">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px', marginBottom: '32px' }}>
           <div>
-            <div className="w-10 h-10 rounded-full bg-cream/10 flex items-center justify-center mx-auto mb-3">
-              <FaPhoneAlt className="text-cream/70 text-sm" />
+            <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'rgba(250,245,239,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 12px' }}>
+              <FaPhoneAlt style={{ fontSize: '14px', opacity: 0.7 }} />
             </div>
-            <p className="text-cream/90 font-medium mb-1">Phone</p>
-            <p className="text-cream/60 font-light">{STORE.phone}</p>
+            <p style={{ fontWeight: 500, fontSize: '14px', marginBottom: '4px', opacity: 0.9 }}>Phone</p>
+            <p style={{ opacity: 0.6, fontWeight: 300, fontSize: '13px' }}>{STORE.phone}</p>
           </div>
-
           <div>
-            <div className="w-10 h-10 rounded-full bg-cream/10 flex items-center justify-center mx-auto mb-3">
-              <FaClock className="text-cream/70 text-sm" />
+            <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'rgba(250,245,239,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 12px' }}>
+              <FaClock style={{ fontSize: '14px', opacity: 0.7 }} />
             </div>
-            <p className="text-cream/90 font-medium mb-1">Hours</p>
-            <p className="text-cream/60 font-light">{STORE.hours}</p>
+            <p style={{ fontWeight: 500, fontSize: '14px', marginBottom: '4px', opacity: 0.9 }}>Hours</p>
+            <p style={{ opacity: 0.6, fontWeight: 300, fontSize: '13px' }}>{STORE.hours}</p>
           </div>
-
           <div>
-            <div className="w-10 h-10 rounded-full bg-cream/10 flex items-center justify-center mx-auto mb-3">
-              <FaMapMarkerAlt className="text-cream/70 text-sm" />
+            <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'rgba(250,245,239,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 12px' }}>
+              <FaMapMarkerAlt style={{ fontSize: '14px', opacity: 0.7 }} />
             </div>
-            <p className="text-cream/90 font-medium mb-1">Address</p>
-            <p className="text-cream/60 font-light leading-relaxed max-w-xs mx-auto">{STORE.address}</p>
+            <p style={{ fontWeight: 500, fontSize: '14px', marginBottom: '4px', opacity: 0.9 }}>Address</p>
+            <p style={{ opacity: 0.6, fontWeight: 300, fontSize: '13px', lineHeight: 1.5, maxWidth: '220px', margin: '0 auto' }}>{STORE.address}</p>
           </div>
         </div>
 
-        {/* WhatsApp button */}
         <a
           href={`https://wa.me/91${STORE.whatsapp}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-cream/15 hover:bg-cream/25 text-cream px-6 py-3 rounded-full text-sm no-underline transition-colors font-medium border border-cream/20"
+          style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(250,245,239,0.15)', color: '#faf5ef', padding: '12px 28px', borderRadius: '50px', fontSize: '14px', textDecoration: 'none', fontWeight: 500, border: '1px solid rgba(250,245,239,0.2)', whiteSpace: 'nowrap' }}
         >
-          <FaWhatsapp /> WhatsApp Us
+          <FaWhatsapp style={{ flexShrink: 0 }} /> WhatsApp Us
         </a>
 
-        {/* Bottom line */}
-        <div className="mt-10 pt-6 border-t border-cream/15 text-xs text-cream/35 flex items-center justify-center gap-2">
-          <FaLeaf className="text-cream/20" />
+        <div style={{ marginTop: '32px', paddingTop: '24px', borderTop: '1px solid rgba(250,245,239,0.15)', fontSize: '12px', opacity: 0.35, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+          <FaLeaf />
           <span>&copy; {new Date().getFullYear()} {STORE.name}. All rights reserved. | Demo Website</span>
         </div>
       </div>

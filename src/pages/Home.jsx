@@ -6,40 +6,40 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden bg-beige">
-        <div className="relative z-10 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 bg-olive/10 border border-olive/30 text-olive px-5 py-2 rounded-full text-sm font-medium mb-6">
+      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '24px', backgroundColor: '#f7f3ed' }}>
+        <div style={{ maxWidth: '700px', margin: '0 auto' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(46,90,30,0.1)', border: '1px solid rgba(46,90,30,0.3)', color: '#2e5a1e', padding: '8px 20px', borderRadius: '50px', fontSize: '14px', fontWeight: 500, marginBottom: '24px' }}>
             <FaLeaf /> Pure Vegetarian
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-4 text-brown leading-tight" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+          <h1 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(40px, 8vw, 72px)', fontWeight: 700, color: '#3e2723', marginBottom: '16px', lineHeight: 1.1 }}>
             Under The Woods
           </h1>
 
-          <p className="text-lg md:text-xl text-brown-muted mb-2 font-light">
+          <p style={{ fontSize: '18px', color: '#8d6e63', marginBottom: '8px', fontWeight: 300 }}>
             Fresh, natural, pure vegetarian cuisine
           </p>
 
-          <div className="flex items-center justify-center gap-2 text-brown-muted text-sm mb-8">
-            <FaStar className="text-amber-500" />
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', color: '#8d6e63', fontSize: '14px', marginBottom: '32px' }}>
+            <FaStar style={{ color: '#f59e0b' }} />
             <span>{STORE.rating} ({STORE.reviews} reviews)</span>
-            <span className="mx-1">&middot;</span>
+            <span>&middot;</span>
             <span>{STORE.priceRange}</span>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', justifyContent: 'center', alignItems: 'center' }}>
             <a
               href={`https://wa.me/91${STORE.whatsapp}?text=Hi! I'd like to make a reservation.`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 bg-olive hover:bg-olive-dark text-cream px-10 py-4 rounded-full font-semibold text-base no-underline transition-colors shadow-md"
+              style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px', backgroundColor: '#2e5a1e', color: '#faf5ef', padding: '16px 40px', borderRadius: '50px', fontWeight: 600, fontSize: '16px', textDecoration: 'none', boxShadow: '0 4px 12px rgba(46,90,30,0.3)', whiteSpace: 'nowrap' }}
             >
-              <FaWhatsapp className="text-lg" />
+              <FaWhatsapp style={{ fontSize: '18px', flexShrink: 0 }} />
               <span>Reserve a Table</span>
             </a>
             <Link
               to="/menu"
-              className="inline-flex items-center justify-center gap-2 border-2 border-olive text-olive hover:bg-olive hover:text-cream px-10 py-4 rounded-full font-semibold text-base no-underline transition-colors"
+              style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', border: '2px solid #2e5a1e', color: '#2e5a1e', padding: '16px 40px', borderRadius: '50px', fontWeight: 600, fontSize: '16px', textDecoration: 'none', whiteSpace: 'nowrap' }}
             >
               Explore Menu
             </Link>
@@ -48,66 +48,62 @@ export default function Home() {
       </section>
 
       {/* Divider */}
-      <div className="flex items-center justify-center py-4 bg-cream-dark">
-        <div className="h-px w-16 bg-olive/30"></div>
-        <FaLeaf className="text-olive mx-4 text-sm" />
-        <div className="h-px w-16 bg-olive/30"></div>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px 0', backgroundColor: '#f0e6d6' }}>
+        <div style={{ height: '1px', width: '60px', backgroundColor: 'rgba(46,90,30,0.3)' }}></div>
+        <FaLeaf style={{ color: '#2e5a1e', margin: '0 16px', fontSize: '12px' }} />
+        <div style={{ height: '1px', width: '60px', backgroundColor: 'rgba(46,90,30,0.3)' }}></div>
       </div>
 
       {/* Features */}
-      <section className="py-20 px-6 bg-cream">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl text-brown mb-3" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
-            Why dine with us
-          </h2>
-          <p className="text-brown-muted mb-14 font-light">An experience that goes beyond just food</p>
+      <section style={{ padding: '80px 24px', backgroundColor: '#faf5ef', textAlign: 'center' }}>
+        <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(28px, 4vw, 36px)', color: '#3e2723', marginBottom: '12px' }}>
+          Why dine with us
+        </h2>
+        <p style={{ color: '#8d6e63', marginBottom: '48px', fontWeight: 300 }}>An experience that goes beyond just food</p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { icon: <FaLeaf className="text-2xl text-olive" />, title: "100% Vegetarian", desc: "Pure veg cuisine crafted with the freshest seasonal ingredients from local farms" },
-              { icon: <FaUtensils className="text-2xl text-olive" />, title: "All You Can Eat", desc: "Unlimited buffet featuring Indian, Chinese, and international dishes" },
-              { icon: <FaTree className="text-2xl text-olive" />, title: "Outdoor Seating", desc: "Dine amidst lush greenery and fresh air under the canopy of nature" },
-            ].map((f, i) => (
-              <div key={i} className="bg-beige border border-cream-mid rounded-2xl p-8 text-center hover:shadow-md transition-shadow">
-                <div className="w-16 h-16 rounded-full bg-olive/10 flex items-center justify-center mx-auto mb-5">
-                  {f.icon}
-                </div>
-                <h3 className="text-lg font-semibold text-brown mb-3" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>{f.title}</h3>
-                <p className="text-brown-muted text-sm font-light leading-relaxed">{f.desc}</p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '24px', maxWidth: '900px', margin: '0 auto' }}>
+          {[
+            { icon: <FaLeaf style={{ fontSize: '24px', color: '#2e5a1e' }} />, title: "100% Vegetarian", desc: "Pure veg cuisine crafted with the freshest seasonal ingredients from local farms" },
+            { icon: <FaUtensils style={{ fontSize: '24px', color: '#2e5a1e' }} />, title: "All You Can Eat", desc: "Unlimited buffet featuring Indian, Chinese, and international dishes" },
+            { icon: <FaTree style={{ fontSize: '24px', color: '#2e5a1e' }} />, title: "Outdoor Seating", desc: "Dine amidst lush greenery and fresh air under the canopy of nature" },
+          ].map((f, i) => (
+            <div key={i} style={{ backgroundColor: '#f0e6d6', border: '1px solid #e8dcc8', borderRadius: '16px', padding: '32px 24px', textAlign: 'center' }}>
+              <div style={{ width: '60px', height: '60px', borderRadius: '50%', backgroundColor: 'rgba(46,90,30,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
+                {f.icon}
               </div>
-            ))}
-          </div>
+              <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '18px', fontWeight: 600, color: '#3e2723', marginBottom: '12px' }}>{f.title}</h3>
+              <p style={{ color: '#8d6e63', fontSize: '14px', fontWeight: 300, lineHeight: 1.7 }}>{f.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* Quote */}
-      <section className="py-20 px-6 bg-olive text-cream text-center">
-        <div className="max-w-2xl mx-auto">
-          <FaQuoteLeft className="text-3xl mb-6 opacity-40 mx-auto" />
-          <p className="text-xl md:text-2xl font-light italic leading-relaxed mb-4" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+      <section style={{ padding: '80px 24px', backgroundColor: '#2e5a1e', color: '#faf5ef', textAlign: 'center' }}>
+        <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+          <FaQuoteLeft style={{ fontSize: '28px', opacity: 0.4, marginBottom: '20px' }} />
+          <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(18px, 3vw, 24px)', fontWeight: 300, fontStyle: 'italic', lineHeight: 1.6, marginBottom: '16px' }}>
             Where every meal is a celebration of nature's finest flavors
           </p>
-          <p className="text-cream/70 text-sm tracking-wider uppercase">Under The Woods, Vijayawada</p>
+          <p style={{ opacity: 0.6, fontSize: '13px', letterSpacing: '2px', textTransform: 'uppercase' }}>Under The Woods, Vijayawada</p>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-6 bg-beige text-center">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl md:text-4xl text-brown mb-4" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
-            Ready for a delightful experience?
-          </h2>
-          <p className="text-brown-muted mb-10 font-light">Join us for an unforgettable dining experience amidst nature</p>
-          <a
-            href={`https://wa.me/91${STORE.whatsapp}?text=Hi! I'd like to make a reservation at Under The Woods.`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-3 bg-olive hover:bg-olive-dark text-cream px-12 py-4 rounded-full font-semibold text-lg no-underline transition-colors shadow-md"
-          >
-            <FaWhatsapp className="text-xl" />
-            <span>Book via WhatsApp</span>
-          </a>
-        </div>
+      <section style={{ padding: '80px 24px', backgroundColor: '#f7f3ed', textAlign: 'center' }}>
+        <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(28px, 4vw, 36px)', color: '#3e2723', marginBottom: '16px' }}>
+          Ready for a delightful experience?
+        </h2>
+        <p style={{ color: '#8d6e63', marginBottom: '32px', fontWeight: 300 }}>Join us for an unforgettable dining experience amidst nature</p>
+        <a
+          href={`https://wa.me/91${STORE.whatsapp}?text=Hi! I'd like to make a reservation at Under The Woods.`}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px', backgroundColor: '#2e5a1e', color: '#faf5ef', padding: '16px 48px', borderRadius: '50px', fontWeight: 600, fontSize: '18px', textDecoration: 'none', boxShadow: '0 4px 12px rgba(46,90,30,0.3)', whiteSpace: 'nowrap' }}
+        >
+          <FaWhatsapp style={{ fontSize: '20px', flexShrink: 0 }} />
+          <span>Book via WhatsApp</span>
+        </a>
       </section>
     </div>
   )

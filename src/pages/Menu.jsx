@@ -3,38 +3,38 @@ import { MENU } from '../data'
 
 export default function Menu() {
   return (
-    <div className="pt-28 pb-16 px-6 bg-beige min-h-screen">
-      <div className="max-w-5xl mx-auto text-center">
-        <h1 className="text-4xl md:text-5xl font-bold text-brown mb-2" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+    <div style={{ paddingTop: '100px', paddingBottom: '60px', padding: '100px 24px 60px', backgroundColor: '#f7f3ed', minHeight: '100vh' }}>
+      <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+        <h1 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(32px, 5vw, 48px)', fontWeight: 700, color: '#3e2723', marginBottom: '8px' }}>
           Our Menu
         </h1>
-        <div className="flex items-center justify-center gap-3 mb-14">
-          <div className="h-px w-12 bg-olive/30"></div>
-          <FaLeaf className="text-olive text-sm" />
-          <div className="h-px w-12 bg-olive/30"></div>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '48px' }}>
+          <div style={{ height: '1px', width: '48px', backgroundColor: 'rgba(46,90,30,0.3)' }}></div>
+          <FaLeaf style={{ color: '#2e5a1e', fontSize: '12px' }} />
+          <div style={{ height: '1px', width: '48px', backgroundColor: 'rgba(46,90,30,0.3)' }}></div>
         </div>
 
         {MENU.map((cat, ci) => (
-          <div key={ci} className="mb-16">
-            <h2 className="text-2xl md:text-3xl text-olive mb-8" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+          <div key={ci} style={{ marginBottom: '48px' }}>
+            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '28px', color: '#2e5a1e', marginBottom: '24px' }}>
               {cat.category}
             </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-3xl mx-auto">
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
               {cat.items.map((item, ii) => (
-                <div key={ii} className="bg-cream border border-cream-mid rounded-xl p-6 text-center hover:shadow-md hover:border-olive/20 transition-all">
-                  <h3 className="text-brown font-semibold text-lg mb-1">{item.name}</h3>
-                  <span className="inline-block text-olive font-bold bg-olive/10 px-4 py-1 rounded-full text-sm mb-3">
+                <div key={ii} style={{ backgroundColor: '#faf5ef', border: '1px solid #e8dcc8', borderRadius: '12px', padding: '24px', textAlign: 'center' }}>
+                  <h3 style={{ color: '#3e2723', fontWeight: 600, fontSize: '17px', marginBottom: '8px' }}>{item.name}</h3>
+                  <span style={{ display: 'inline-block', color: '#2e5a1e', fontWeight: 700, backgroundColor: 'rgba(46,90,30,0.1)', padding: '4px 16px', borderRadius: '50px', fontSize: '14px', marginBottom: '12px' }}>
                     ₹{item.price}
                   </span>
-                  <p className="text-brown-muted text-sm font-light leading-relaxed">{item.desc}</p>
+                  <p style={{ color: '#8d6e63', fontSize: '13px', fontWeight: 300, lineHeight: 1.6 }}>{item.desc}</p>
                 </div>
               ))}
             </div>
           </div>
         ))}
 
-        <p className="text-brown-muted text-sm mt-4 font-light italic">
+        <p style={{ color: '#8d6e63', fontSize: '13px', fontWeight: 300, fontStyle: 'italic', marginTop: '16px' }}>
           All dishes are 100% vegetarian. Prices are inclusive of taxes.
         </p>
       </div>
